@@ -470,7 +470,190 @@
 
 </section>
     <script src="" async defer></script>
-   
+   <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const scene = document.getElementById("drone");
+  const drone = document.getElementById("vgDrone");
+  const droneLabel = document.getElementById("vgDroneLabel");
+  const warning = document.getElementById("vgWarning");
+  const playButton = document.getElementById("vgPlay");
+  const statusText = document.getElementById("vgStatus");
+
+  if (!scene || !drone || !playButton) {
+    console.log("عناصر محاكاة الدرون غير موجودة");
+    return;
+  }
+
+  const stepButtons = scene.querySelectorAll("[data-vg-step]");
+  const stepCards = scene.querySelectorAll(".vg-card");
+
+  /* أماكن الدرون في الخطوات الست */
+  const positions = [
+    { x: 96,  y: 470 },
+    { x: 272, y: 332 },
+    { x: 464, y: 205 },
+    { x: 576, y: 275 },
+    { x: 672, y: 168 },
+    { x: 112, y: 120 }
+  ];
+
+  const messages = [
+    "المفتش يحدد المنطقة الخطرة",
+    "إرسال الدرون بدلًا من المفتش",
+    "مسح الخزانات والأنابيب والمعدات",
+    "تدفق البيانات إلى لوحة التحكم",
+    "اكتشاف حالة غير طبيعية",
+    "المفتش يقرر من موقع آمن"
+  ];
+
+  let currentStep = 0;
+  let simulationInterval = null;
+  let isPlaying = false;
+
+  /* تحريك الدرون بشكل تدريجي */
+  function moveDrone(targetX, targetY) {
+    const currentTransform =
+      drone.getAttribute("transform") || "translate(96 470)";
+
+    const numbers = currentTransform.match(/-?\d+(\.\d+)?/g);
+
+    const startX = numbers ? Number(numbers[0]) : 96;
+    const startY = numbers ? Number(numbers[1]) : 470;
+
+    const duration = 1200;
+    const startTime = performance.now();
+
+    function animateDrone(time) {
+      const elapsed = time - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+
+      /* يجعل الحركة ناعمة */
+      const smooth =
+        progress * progress * (3 - 2 * progress);
+
+      const newX =
+        startX + (targetX - startX) * smooth;
+
+      const newY =
+        startY + (targetY - startY) * smooth;
+
+      drone.setAttribute(
+        "transform",
+        "translate(" + newX + " " + newY + ")"
+      );
+
+      if (progress < 1) {
+        requestAnimationFrame(animateDrone);
+      }
+    }
+
+    requestAnimationFrame(animateDrone);
+  }
+
+  /* عرض خطوة معينة */
+  function showStep(stepNumber) {
+    currentStep = stepNumber;
+
+    moveDrone(
+      positions[stepNumber].x,
+      positions[stepNumber].y
+    );
+
+    /* تغيير زر الخطوة النشط */
+    stepButtons.forEach(function (button, index) {
+      button.classList.toggle(
+        "vg-active",
+        index === stepNumber
+      );
+    });
+
+    /* تغيير كرت الشرح النشط */
+    stepCards.forEach(function (card, index) {
+      card.classList.toggle(
+        "vg-active",
+        index === stepNumber
+      );
+    });
+
+    /* تغيير حالة المهمة */
+    statusText.textContent = messages[stepNumber];
+
+    /* يظهر التنبيه في الخطوة الخامسة */
+    if (stepNumber === 4) {
+      warning.setAttribute("visibility", "visible");
+    } else if (stepNumber < 4) {
+      warning.setAttribute("visibility", "hidden");
+    }
+
+    /* يجعل اسم الدرون لا يخرج من المخطط */
+    if (positions[stepNumber].x > 590) {
+      droneLabel.setAttribute("x", "-29");
+      droneLabel.setAttribute("text-anchor", "end");
+    } else {
+      droneLabel.setAttribute("x", "29");
+      droneLabel.setAttribute("text-anchor", "start");
+    }
+  }
+
+  /* الضغط على أزرار الخطوات */
+  stepButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      stopSimulation();
+
+      const selectedStep =
+        Number(button.getAttribute("data-vg-step"));
+
+      showStep(selectedStep);
+    });
+  });
+
+  /* تشغيل المحاكاة تلقائيًا */
+  function startSimulation() {
+    if (isPlaying) {
+      stopSimulation();
+      return;
+    }
+
+    isPlaying = true;
+    currentStep = 0;
+
+    playButton.textContent = "Ⅱ إيقاف";
+    showStep(currentStep);
+
+    simulationInterval = setInterval(function () {
+      currentStep++;
+
+      if (currentStep >= positions.length) {
+        stopSimulation();
+
+        playButton.textContent = "↻ إعادة التشغيل";
+        statusText.textContent = "اكتملت المحاكاة";
+
+        return;
+      }
+
+      showStep(currentStep);
+    }, 2500);
+  }
+
+  /* إيقاف المحاكاة */
+  function stopSimulation() {
+    clearInterval(simulationInterval);
+
+    simulationInterval = null;
+    isPlaying = false;
+
+    playButton.textContent = "▷ تشغيل";
+  }
+
+  playButton.addEventListener("click", startSimulation);
+
+  /* تشغيل الخطوة الأولى عند فتح الصفحة */
+  showStep(0);
+
+});
+</script>
 
   </body>
   <script>
