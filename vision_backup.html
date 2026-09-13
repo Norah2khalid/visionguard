@@ -19,7 +19,7 @@
   <body>
     <div class="logo">
       <img
-        src="imges/logodron.jpg"
+        src="logodron.jpg"
         alt="VISIONGUARD  TEAM . FISCB"
         width="40"
         height="40"
@@ -34,10 +34,16 @@
       </div>
 
       <div class="mnue-btn">
-        <button type="button" class="mnue-btn" onclick="toggleMnue()">
-          ☰
-        </button>
-
+        <button class="mnue-btn" id="menuBtn" type="button" onclick="toggleMenu()">
+  ☰
+</button>
+<div class="logo-links" id="menuLinks">
+  <a href="#problem">المشكلة</a>
+  <a href="#solution">الحل</a>
+  <a href="#drone">مشهد الدرون</a>
+  <a href="#dashboard">لوحة التحكم</a>
+  <a href="#impact">الأثر</a>
+</div>
         <div class="logo-links" id="mnueLinks">
           <a class="links" href="">المشكلة</a>
           <br />
@@ -71,8 +77,8 @@
     </div>
 
     <div class="visionguard">
-      <h1 style="color: #18a0d6">GUARD</h1>
-      <h1 style="color: rgb(155, 229, 229)">VISION</h1>
+      <h1 style="color: #387993">GUARD</h1>
+      <h1 style="color: rgb(239, 244, 244)">VISION</h1>
     </div>
 
     <div class="vision">
@@ -93,13 +99,16 @@
     <br />
     <br />
 
-    <div class="buttonvis">
-      <button type="">أستكشف الحل ⟵</button>
-    </div>
+  <div class="buttonvis">
+  <a href="#solution">
+    <button type="button">استكشف الحل ⟵</button>
+  </a>
+</div>
 
     <br />
 
     <div class="buttonvision">
+      <a href="#drone">مشهد الدرون</a>
       <button type="">شاهد تفتيش الدرون</button>
     </div>
     <br />
@@ -135,9 +144,347 @@
     <br />
     <br />
 
-    
+    <section class="problem-section" id="problem">
 
+  <p class="section-number">01 — المشكلة</p>
 
+  <h2 class="problem-title">
+    التفتيش اليوم بطيء و
+    <span>عالي المخاطر</span>
+  </h2>
+  
+  <!-- قسم المشكله -->
+
+  <p class="problem-description">
+    في قطاعات النقل والتخزين في البترول والغاز، نواجه مشكلتين
+    رئيسيتين في عمليات التفتيش: الهدر العالي للوقت بسبب الاعتماد
+    على الإجراءات اليدوية والورقية، مما يؤدي إلى إطالة وقت دورة
+    التفتيش. والمخاطر العالية، وهي الأهم، حيث تهدد سلامة وحياة
+    المفتشين عند اضطرارهم لدخول مناطق شديدة الخطورة أو يصعب الوصول
+    إليها لإجراء الفحوصات الروتينية.
+  </p>
+
+  <div class="problem-image">
+    <img
+      src="imges/inspection-worker.jpg"
+      alt="مفتش يعمل في منطقة صناعية خطرة"
+    >
+
+    <div class="danger-label">
+      <span class="danger-circle"></span>
+      منطقة خطرة · دخول بشري
+    </div>
+  </div>
+<div class="problem-cards">
+
+  <div class="problem-card">
+    <div class="problem-icon">▣</div>
+
+    <h3>التفتيش اليدوي والورقي</h3>
+
+    <p>
+      تُسجّل بيانات التفتيش ورقيًا ثم يُعاد إدخالها،
+      مما يبطئ كل خطوة في العملية.
+    </p>
+  </div>
+
+  <div class="problem-card">
+    <div class="problem-icon">◷</div>
+
+    <h3>
+      ارتفاع وقت دورة التفتيش
+      <span>(Time Cycle)</span>
+    </h3>
+
+    <p>
+      الإجراءات اليدوية تطيل وقت دورة التفتيش
+      وتؤخر القرارات التشغيلية.
+    </p>
+  </div>
+
+  <div class="problem-card">
+    <div class="problem-icon">△</div>
+
+    <h3>مناطق يصعب الوصول إليها</h3>
+
+    <p>
+      الخزانات والمنشآت المرتفعة والأماكن الضيقة
+      يصعب الوصول إليها ويستغرق فحصها وقتًا طويلًا.
+    </p>
+  </div>
+
+  <div class="problem-card">
+    <div class="problem-icon">⚠</div>
+
+    <h3>مخاطر عالية على المفتشين</h3>
+
+    <p>
+      الفحوصات الروتينية تضطر المفتشين لدخول مناطق
+      شديدة الخطورة، مما يهدد سلامتهم وحياتهم.
+    </p>
+  </div>
+
+</div>
+</section>
+
+<!-- قسم الحل -->
+<section class="solution-section" id="solution">
+
+  <p class="section-number">02 — الحل</p>
+
+  <h2 class="solution-title">
+    <span>VISIONGUARD</span>
+    — منظومة تفتيش ذكية ومؤتمتة
+  </h2>
+
+  <p class="solution-description">
+    VISIONGUARD هي منظومة تفتيش متكاملة ومؤتمتة تهدف إلى رفع
+    الكفاءة التشغيلية وتقليل تعرض المفتشين للمناطق الخطرة.
+    الدرون تدخل المنطقة الخطرة، والمفتش يبقى بأمان.
+  </p>
+
+  <div class="solution-cards">
+
+    <!-- منصة التفتيش الرقمية -->
+    <div class="solution-card">
+
+      <div class="solution-icon">▯</div>
+
+      <p class="solution-label">المناطق العادية</p>
+
+      <h3>منصة التفتيش الرقمية</h3>
+
+      <p>
+        في المناطق العادية، يستخدم المفتش منصة رقمية عبر جهاز لوحي
+        لتوثيق بيانات التفتيش بشكل فوري ومنظم، بدلًا من النماذج
+        الورقية وإعادة إدخال البيانات.
+      </p>
+
+      <ul>
+        <li>توثيق فوري ومنظم للبيانات</li>
+        <li>قوائم فحص رقمية موحّدة</li>
+        <li>مزامنة مباشرة مع لوحة التحكم (Dashboard)</li>
+      </ul>
+
+    </div>
+<!-- بوكس الدرون للمناطق الخطرة -->
+<div class="drone-solution-card">
+
+  <div class="drone-content">
+
+    <div class="drone-icon-box">▣</div>
+
+    <p class="drone-zone">
+      المناطق الخطرة
+      <span>(HIGH-RISK ZONE)</span>
+    </p>
+
+    <h3>
+      الدرون والروبوتات بدلاً من الإنسان
+    </h3>
+
+    <p class="drone-description">
+      في المناطق الخطرة، يتم إرسال طائرات الدرون (Drone)
+      أو الروبوتات كبديل للعنصر البشري، حيث تقوم بمسح وتصوير
+      الموقع بدقة وإرسال البيانات الحية (Live Data) إلى المنصة.
+      ومن خلال هذه البيانات، يستطيع المفتش تقييم الحالة واتخاذ
+      القرار عن بُعد وبأمان تام، وكأنه زار الموقع بنفسه.
+    </p>
+
+    <div class="drone-features">
+
+      <div class="drone-feature">
+        <span class="feature-icon">▧</span>
+        <span>مسح وتصوير الموقع</span>
+      </div>
+
+      <div class="drone-feature">
+        <span class="feature-icon">◉</span>
+        <span>بث البيانات الحية</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- العبارة أسفل بوكس الدرون -->
+<div class="solution-quote">
+  <p>
+    »الدرون تدخل المنطقة الخطرة،
+    <span>والمفتش يبقى بأمان.</span>«
+  </p>
+</div>
+
+</section>
+<!-- مشهد الدرون التفاعلي -->
+<section id="drone" class="vg-scene">
+
+  <p class="vg-number">03 — مشهد تفتيش الدرون</p>
+
+  <h2>داخل المنشأة، خطوة بخطوة</h2>
+
+  <p class="vg-intro">
+    منشأة ضخمة لتخزين ونقل البترول والغاز: خزانات، أنابيب،
+    صمامات، أبراج، مناطق مرتفعة ومناطق مصنفة عالية الخطورة
+    (High-Risk Zone) — يتم تفتيشها بواسطة درون صناعية.
+  </p>
+
+  <div class="vg-panel">
+
+    <div class="vg-toolbar">
+      <p>مخطط المنشأة · <span id="vgStatus">جاهز للتشغيل</span></p>
+      <button id="vgPlay" type="button">▷ تشغيل</button>
+    </div>
+
+    <div class="vg-map">
+      <svg
+        viewBox="0 0 800 600"
+        xmlns="http://www.w3.org/2000/svg"
+        role="img"
+        aria-label="محاكاة مسار الدرون داخل المنشأة"
+      >
+        <defs>
+          <pattern
+            id="vgGrid"
+            width="80"
+            height="80"
+            patternUnits="userSpaceOnUse"
+          >
+            <path
+              d="M80 0H0V80"
+              fill="none"
+              stroke="#23343e"
+              stroke-width="1"
+            />
+          </pattern>
+        </defs>
+
+        <rect width="800" height="600" fill="#061119"/>
+        <rect width="800" height="600" fill="url(#vgGrid)"/>
+
+        <!-- أنابيب المنشأة -->
+        <path
+          d="M80 290H705 M320 120V400"
+          fill="none"
+          stroke="#293e48"
+          stroke-width="2"
+        />
+
+        <!-- المنطقة الخطرة -->
+        <rect
+          x="400" y="60" width="335" height="275" rx="10"
+          fill="#ff5965" fill-opacity=".07"
+          stroke="#8a3e48" stroke-width="2"
+        />
+
+        <text
+          x="715" y="92"
+          text-anchor="end"
+          fill="#ff6068"
+          font-size="17"
+        >منطقة خطرة</text>
+
+        <!-- الخزانات -->
+        <g fill="#172630" stroke="#2c424e" stroke-width="2">
+          <circle cx="415" cy="132" r="36"/>
+          <circle cx="545" cy="108" r="36"/>
+          <circle cx="655" cy="180" r="36"/>
+        </g>
+
+        <!-- غرفة التحكم -->
+        <rect
+          x="48" y="374" width="208" height="178" rx="10"
+          fill="#1bc7c9" fill-opacity=".06"
+          stroke="#137d83" stroke-width="2"
+        />
+
+        <text
+          x="145" y="407"
+          text-anchor="middle"
+          fill="#1bc7c9"
+          font-size="17"
+        >غرفة التحكم</text>
+
+        <!-- مسار الدرون -->
+        <path
+          d="M96 470L272 332L464 205L576 275L672 168L112 120"
+          fill="none"
+          stroke="#188e94"
+          stroke-width="3"
+          stroke-dasharray="16 16"
+        />
+
+        <!-- علامة الملاحظة -->
+        <g id="vgWarning" visibility="hidden">
+          <circle
+            cx="672" cy="168" r="20"
+            fill="none" stroke="#ff5965" stroke-width="3"
+          />
+          <circle
+            cx="672" cy="168" r="15"
+            fill="none" stroke="#ff5965" stroke-width="2"
+          />
+        </g>
+
+        <!-- الدرون المتحرك -->
+        <g id="vgDrone" transform="translate(96 470)">
+          <circle
+            r="38"
+            fill="#1bc7c9" fill-opacity=".04"
+            stroke="#13868c" stroke-width="1.5"
+          />
+          <circle r="15" fill="#1bc7c9"/>
+
+          <text
+            id="vgDroneLabel"
+            x="29" y="6"
+            fill="#1bc7c9"
+            font-family="monospace"
+            font-size="16"
+            direction="ltr"
+          >VG-DRONE-01</text>
+        </g>
+
+      </svg>
+    </div>
+
+    <div class="vg-buttons" aria-label="خطوات المحاكاة">
+      <button type="button" data-vg-step="0">الخطوة 01</button>
+      <button type="button" data-vg-step="1">الخطوة 02</button>
+      <button type="button" data-vg-step="2">الخطوة 03</button>
+      <button type="button" data-vg-step="3">الخطوة 04</button>
+      <button type="button" data-vg-step="4">الخطوة 05</button>
+      <button type="button" data-vg-step="5">الخطوة 06</button>
+    </div>
+
+  </div>
+
+  <!-- تُنشأ بطاقات الشرح هنا بواسطة السكربت -->
+  <div class="vg-cards" id="vgCards"></div>
+
+  <p class="vg-note">
+    محاكاة توضيحية، وليست اتصالًا بدرون أو بيانات فعلية.
+  </p>
+
+</section>
     <script src="" async defer></script>
+   
+
   </body>
+  <script>
+  function toggleMenu() {
+    const menu = document.getElementById("menuLinks");
+    const button = document.getElementById("menuBtn");
+
+    menu.classList.toggle("active");
+
+    if (menu.classList.contains("active")) {
+      button.innerHTML = "✕";
+    } else {
+      button.innerHTML = "☰";
+    }
+  }
+</script>
 </html>
