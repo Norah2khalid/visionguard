@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+
+    <div id="idea-pdf"></div>
     <div class="logo">
       <img
         src="images/logoteamfiscb.jpg"
@@ -28,9 +30,6 @@
       />
 
       <div class="logo-name">
-        <h1 style="color: rgba(217, 235, 241, 0.619)">VISIONGUARD</h1>
-        <div class="subtitle">TEAM . FISCB
-        </div>
       </div>
 
       <div class="mnue-btn">
@@ -107,7 +106,7 @@
         </div>
 
         <div class="report-title">
-            تقرير فحص المنشأة
+            تقرير الفحص 
         </div>
 
     </div>
@@ -2435,18 +2434,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function printVisionGuard() {
 
-    // تحديث عنوان المستند قبل الطباعة
-    const oldTitle = document.title;
-
-    document.title = "VISIONGUARD - تقرير فحص المنشأة";
-
     // فتح نافذة الطباعة الأصلية للمتصفح
     window.print();
-
-    // إعادة العنوان بعد انتهاء عملية الطباعة
-    setTimeout(() => {
-        document.title = oldTitle;
-    }, 1000);
 }
 
 
